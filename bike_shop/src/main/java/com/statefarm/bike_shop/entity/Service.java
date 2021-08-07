@@ -10,7 +10,7 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)  //'one' service request (or Service object) for 'one' Bike
+    @ManyToOne(fetch = FetchType.EAGER)  //'many' services (or Service objects) for 'one' Bike
     private Bike bikeId;
 
     private String service;

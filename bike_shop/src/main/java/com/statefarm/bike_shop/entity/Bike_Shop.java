@@ -13,7 +13,7 @@ public class Bike_Shop {
 //    private Customer customer;
 
     @ManyToOne  //'many' service requests (or Service objects) for 'one' Customer
-    private Service serviceId;
+    private Service service;
 
     private String location;
 }
