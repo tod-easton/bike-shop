@@ -1,10 +1,7 @@
 package com.statefarm.bike_shop.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Bike_Shop {
@@ -13,8 +10,9 @@ public class Bike_Shop {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long custId;
 
-    private Customer customer;
+//    private Customer customer;
 
+    @ManyToOne  //'many' service requests (or Service objects) for 'one' Customer
     private Service serviceId;
 
     private String location;

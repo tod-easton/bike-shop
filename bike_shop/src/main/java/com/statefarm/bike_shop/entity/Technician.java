@@ -1,10 +1,7 @@
 package com.statefarm.bike_shop.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Technician {
@@ -12,6 +9,9 @@ public class Technician {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @OneToMany(fetch = FetchType.EAGER)  //'one' tech (or Technician object) for 'many' Services
+    private Service serviceId;
 
     private String skill;
 
@@ -21,5 +21,21 @@ public class Technician {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Service getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(Service serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public String getSkill() {
+        return skill;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 }
