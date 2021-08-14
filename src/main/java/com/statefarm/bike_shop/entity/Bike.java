@@ -1,10 +1,7 @@
 package com.statefarm.bike_shop.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Bike {
@@ -13,14 +10,19 @@ public class Bike {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false, length = 80)
     private String name;
+
+    private String description;
+
+    public Bike() {};
+
+    public Bike(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -29,5 +31,9 @@ public class Bike {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

@@ -10,25 +10,28 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)  //'one' customer (or Customer object) for 'one' Bike
-    private Bike bikeId;
+    @ManyToOne(fetch = FetchType.EAGER)  //'many' customers (or Customer object) for 'one' Bike
+    private Bike bike;
 
     private String name;
+
+    public Customer() {}
+
+    public Customer(String name, Bike bike) {
+        this.name = name;
+        this.bike = bike;
+    }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Bike getBike() {
+        return bike;
     }
 
-    public Bike getBikeId() {
-        return bikeId;
-    }
-
-    public void setBikeId(Bike bikeId) {
-        this.bikeId = bikeId;
+    public void setBike(Bike bike) {
+        this.bike = bike;
     }
 
     public String getName() {
