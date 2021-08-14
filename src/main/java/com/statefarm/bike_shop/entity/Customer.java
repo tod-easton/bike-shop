@@ -18,6 +18,8 @@ public class Customer {
 
     private String name;
 
+    private Boolean chosen = false;
+
     public Customer() {}
 
     public Customer(String name, Bike bike) {
