@@ -15,10 +15,14 @@ public class Bike {
 
     private String description;
 
+    private Integer speed;
+
     public Bike() {};
 
-    public Bike(String name) {
+    public Bike(String name, String description, Integer speed) {
         this.name = name;
+        this.description = description;
+        this.speed = speed;
     }
 
     public Long getId() {
