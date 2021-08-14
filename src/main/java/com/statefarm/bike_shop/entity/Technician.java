@@ -10,7 +10,7 @@ public class Technician {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER)  //'one' tech (or Technician object) for 'many' Services
+    @OneToOne(fetch = FetchType.EAGER)  //'one' tech (or Technician object) for 'one' Service
     private Service serviceId;
 
     private String skill;
