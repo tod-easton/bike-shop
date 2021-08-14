@@ -1,7 +1,9 @@
 package com.statefarm.bike_shop.entity;
 
+import com.statefarm.bike_shop.enums.ServiceName;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class Service {
@@ -10,33 +12,41 @@ public class Service {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, length = 80)
-    private String service;
+    @Enumerated(EnumType.STRING)
+    private ServiceName serviceName;
 
-    public Service() {};
+    private Integer cost;
 
-    public Service(String service) {
-        this.service = service;
+    public Service() {}
+
+    public Service(ServiceName serviceName) {
+        this.serviceName = serviceName;
+
+        switch (serviceName) {
+            case REPAIR_TIRE:
+                cost = 5;
+                break;
+            case REPLACE_CHAIN:
+                cost = 20;
+                break;
+            case TUNE_UP:
+                cost = 50;
+                break;
+            case SERVICE_BREAKS:
+                cost = 30;
+                break;
+        }
     }
-
 
     public Long getId() {
         return id;
     }
 
-//    public Bike getBikeId() {
-//        return bikeId;
-//    }
-
-//    public void setBikeId(Bike bikeId) {
-//        this.bikeId = bikeId;
-//    }
-
-    public String getService() {
-        return service;
+    public ServiceName getServiceName() {
+        return serviceName;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public Integer getCost() {
+        return cost;
     }
 }
