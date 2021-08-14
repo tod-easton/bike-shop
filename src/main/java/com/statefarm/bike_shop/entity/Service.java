@@ -3,7 +3,6 @@ package com.statefarm.bike_shop.entity;
 import com.statefarm.bike_shop.enums.ServiceName;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class Service {

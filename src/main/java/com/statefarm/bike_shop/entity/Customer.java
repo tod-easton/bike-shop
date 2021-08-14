@@ -13,6 +13,9 @@ public class Customer {
     @ManyToOne(fetch = FetchType.EAGER)  //'many' customers (or Customer object) for 'one' Bike
     private Bike bike;
 
+    @ManyToOne(fetch = FetchType.EAGER)  //'many' customers (or Customer object) for 'one' Service
+    private Service service;
+
     private String name;
 
     public Customer() {}
