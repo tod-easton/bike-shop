@@ -1,12 +1,13 @@
-
 spring:
+  main:
+    web-application-type: none
   jpa:
     hibernate:
       ddl-auto: create
     database-platform: org.hibernate.dialect.PostgreSQL95Dialect
     properties:
       hibernate:
-        default_schema: example
+        default_schema: bike_shop
   datasource:
     url: "jdbc:postgresql://localhost:5432/postgres"
     username: postgres
